@@ -1,0 +1,93 @@
+@use "sass:map";
+@use "../../../styles/color" as colors;
+
+
+.home-bg{
+    min-height: 100vh;
+    background-color: map.get(colors.$colors, "accent");
+}
+.books-container {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 24px;
+
+  padding: 24px;
+}
+
+.book-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+  border: 2px solid map.get(colors.$colors, "primary");
+
+  &:hover {
+  
+  cursor: pointer;
+  }
+
+  h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: map.get(colors.$colors, "secondary");
+  margin: 0 auto;
+}
+
+  span {
+  font-size: 15px;
+
+  line-height: 1.5;
+}
+}
+
+
+@media (max-width: 992px) {
+  .books-container {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .books-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.read-btn{
+    border-radius: 1px;
+    border: none;
+    color: map.get(colors.$colors, "secondary");
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+    &:hover{
+        transform: translateY(-4px);
+        background-color: map.get(colors.$colors, "accent");
+        color: white;
+    }
+    
+}
+
+.loading-container {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 40px;
+}

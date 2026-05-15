@@ -1,0 +1,16 @@
+@use "sass:map";
+@use "../../../styles/color" as colors;
+
+
+.header-bg {
+    background-color: map.get(colors.$colors, "secondary");
+    padding: 8px 8px;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 5px solid map.get(colors.$colors, "primary");
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    text-transform: uppercase;
+}

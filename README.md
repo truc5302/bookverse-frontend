@@ -1,59 +1,135 @@
-# BookverseClien
+# 📚 BookVerse — Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.10.
+> Giao diện người dùng cho nền tảng **BookVerse** — ứng dụng quản lý và khám phá sách trực tuyến.
 
-## Development server
+[![Angular](https://img.shields.io/badge/Angular-v21-DD0031?style=flat-square&logo=angular&logoColor=white)](https://angular.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![SCSS](https://img.shields.io/badge/Styles-SCSS-CC6699?style=flat-square&logo=sass&logoColor=white)](https://sass-lang.com/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-To start a local development server, run:
+---
+
+## 🏗️ Kiến trúc dự án
+
+```
+src/
+├── app/
+│   ├── core/           # Services singleton, guards, interceptors
+│   ├── features/       # Các module chức năng (lazy-loaded)
+│   ├── layouts/        # Layout components (header, footer, sidebar)
+│   ├── pages/          # Standalone pages (home, 404, ...)
+│   ├── shared/         # Components, pipes, directives dùng chung
+│   ├── app.config.ts   # Cấu hình ứng dụng
+│   ├── app.routes.ts   # Định tuyến chính
+│   ├── app.ts          # Root component
+│   └── app.scss        # Styles root component
+├── environments/       # Cấu hình môi trường (dev / prod)
+├── styles.scss         # Global styles
+├── index.html          # Entry HTML
+└── main.ts             # Bootstrap ứng dụng
+```
+
+## ⚙️ Công nghệ sử dụng
+
+| Công nghệ      | Phiên bản | Mô tả                  |
+| -------------- | --------- | ---------------------- |
+| **Angular**    | 21.2      | Framework SPA          |
+| **TypeScript** | 5.9       | Ngôn ngữ lập trình     |
+| **SCSS**       | —         | CSS preprocessor       |
+| **RxJS**       | 7.8       | Reactive programming   |
+| **Vitest**     | 4.0       | Unit testing framework |
+
+## 🔗 Backend API
+
+Frontend kết nối tới backend **BookVerse API** (.NET):
+
+| Môi trường  | URL                          |
+| ----------- | ---------------------------- |
+| Development | `https://localhost:7158/api` |
+| Production  | `http://localhost:5034/api`  |
+
+> 📖 Backend repo: [bookverse-server](../bookverse-server/)
+
+## 🚀 Bắt đầu
+
+### Yêu cầu hệ thống
+
+- **Node.js** >= 20.x
+- **npm** >= 10.x
+- **Angular CLI** >= 21.x
+
+### Cài đặt
 
 ```bash
+# Clone repository
+git clone https://github.com/Truc5302/bookverse-frontend.git
+cd bookverse-frontend
+
+# Cài đặt dependencies
+npm install
+```
+
+### Chạy development server
+
+```bash
+npm start
+# hoặc
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Mở trình duyệt tại 👉 [http://localhost:4200](http://localhost:4200)
 
-## Code scaffolding
+> Ứng dụng sẽ tự động reload khi bạn thay đổi source code.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+### Build production
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Kết quả build nằm trong thư mục `dist/`.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## 🧪 Testing
 
 ```bash
+# Chạy unit tests với Vitest
 ng test
 ```
 
-## Running end-to-end tests
+## 📁 Cấu hình Environment
 
-For end-to-end (e2e) testing, run:
+Tạo hoặc chỉnh sửa file trong `src/environments/`:
 
-```bash
-ng e2e
+```typescript
+// environment.development.ts
+export const environment = {
+  production: false,
+  apiUrl: 'https://localhost:7158/api',
+};
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+```typescript
+// environment.ts (production)
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:5034/api',
+};
+```
 
-## Additional Resources
+## 🤝 Đóng góp
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Fork repository
+2. Tạo branch mới (`git checkout -b feature/ten-tinh-nang`)
+3. Commit thay đổi (`git commit -m "feat: mô tả thay đổi"`)
+4. Push lên branch (`git push origin feature/ten-tinh-nang`)
+5. Tạo Pull Request
+
+## 📄 License
+
+Dự án được phân phối dưới giấy phép [MIT](LICENSE).
+
+---
+
+<p align="center">
+  Made with ❤️ by <strong>BookVerse Team</strong>
+</p>

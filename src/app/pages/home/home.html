@@ -1,0 +1,26 @@
+<div class="home-bg">
+    <div class="books-container">
+
+        @if (books().length === 0 && !error()) {
+            <div class="loading-container">
+
+    <mat-spinner diameter="50"></mat-spinner>
+
+  </div>
+        }
+        @if (error()) {
+        <p>{{ error() }}</p>
+        }
+
+        @for (item of books(); track item.id) {
+            <div class="book-item">
+                <h2>{{ item.title }}</h2>
+                <span><strong>Author:</strong> {{ item.author }}</span>
+                <span><strong>Year:</strong> {{ item.year }}</span>
+                <span><strong>Content:</strong> {{ item.content }}</span>
+                <button class="read-btn" (click)="GotoDetail(item.id)"> Detail</button>
+            </div>
+        }
+    </div>
+    
+</div>
