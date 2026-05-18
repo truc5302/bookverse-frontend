@@ -6,7 +6,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-home',
-  imports: [ MatProgressSpinnerModule],
+  imports: [MatProgressSpinnerModule],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

@@ -1,0 +1,122 @@
+<div class="detail-container">
+
+  @if (loading()) {
+
+    <div class="loading">
+      Loading...
+    </div>
+  }
+
+  @if (bookDetails(); as item) {
+
+    <div class="detail-card">
+
+      <div class="image-section">
+
+        @if (item.images?.length) {
+
+          <img
+            [src]="item.images[0].imageUrl"
+            alt="book image"
+          />
+        }
+
+        @else {
+
+          <div class="empty-image">
+            No Image
+          </div>
+        }
+
+      </div>
+
+      <div class="content-section">
+
+        <h1>
+          {{ item.title }}
+        </h1>
+
+        <p>
+          <strong>Author:</strong>
+          {{ item.author }}
+        </p>
+
+        <p>
+          <strong>Year:</strong>
+          {{ item.year }}
+        </p>
+
+        <div class="description">
+
+          <h3>Description</h3>
+
+          <p>
+            {{ item.content }}
+          </p>
+
+        </div>
+
+        <div class="images-list">
+
+          <h3>Image List</h3>
+
+          @for (image of item.images; track image.id) {
+            <span class="image-item">
+              <img
+                [src]="image.imageUrl"
+                alt="book image"
+                class="image-item-list"
+              />
+            </span>
+          }
+
+        </div>
+
+        <div class="reviews">
+
+  <h3>Reviews</h3>
+
+  <div class="reviews-list">
+
+    @if (item.reviews?.length) {
+
+      @for (
+        review of item.reviews;
+        track review.id
+      ) {
+
+        <div class="review-item">
+
+          <h4>
+            {{ review.reviewerName }}
+          </h4>
+
+          <p>
+            {{ review.reviewContent }}
+          </p>
+
+        </div>
+      }
+    }
+
+    @else {
+
+      <p>No reviews yet.</p>
+    }
+
+  </div>
+
+        </div>
+
+        <button
+          class="back-btn"
+          (click)="goBack()"
+        >
+          Back
+        </button>
+
+      </div>
+
+    </div>
+  }
+</div>
